@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <div id="loginStatus"></div>
+    </div>
+  
+  
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+
+      try {
+        const response = await fetch('../backend/login.php', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          throw new Error("Invalid JSON response");
+        }
+
+        const data = await response.json();
+        if (data.status === 'success') {
+          document.getElementById('loginStatus').style.color = 'lightgreen';
+          document.getElementById('loginStatus').textContent = 'Login successful! Redirecting...';
+          setTimeout(() => {
+            window.location.href = "../backend/dashboard.php";
+          }, 1000);
+        } else {
+          document.getElementById('loginStatus').style.color = '#ff5252';
+          document.getElementById('loginStatus').textContent = data.error || 'Login failed';
+        }
+      } catch (err) {
+        document.getElementById('loginStatus').style.color = '#ff5252';
+        document.getElementById('loginStatus').textContent = "Login error: " + err.message;
+        console.error("Login error:", err);
+      }
+    });
+  </script>
+</body>
+</html>

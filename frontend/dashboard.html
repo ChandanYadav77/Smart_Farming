@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+</head>
+<body>
+  <h2>Welcome to the Dashboard</h2>
+  <p>This page is protected. You are logged in.</p>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    // Check login status
+    fetch('is_logged_in.php')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.logged_in) {
+          alert("Not authorized! Redirecting to login.");
+          window.location.href = "login.html";
+        }
+      });
+
+    // Logout function
+    function logout() {
+      fetch('logout.php')
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === 'logged_out') {
+            window.location.href = "login.html";
+          }
+        });
+    }
+  </script>
+</body>
+</html>

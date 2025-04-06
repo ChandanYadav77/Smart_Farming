@@ -1,0 +1,84 @@
+/* Reset everything */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #2c3e50, #3498db);
+  }
+  
+  /* Login Container */
+  .login-container {
+    background-color: #ffffff10;
+    padding: 40px 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    max-width: 350px;
+    width: 90%;
+    color: white;
+  }
+  
+  /* Title */
+  .login-container h2 {
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: 600;
+  }
+  
+  /* Input Fields */
+  .login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 15px;
+    transition: 0.3s;
+  }
+  
+  .login-container input::placeholder {
+    color: #ccc;
+  }
+  
+  .login-container input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  /* Button */
+  .login-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-container button:hover {
+    background-color: #2ecc71;
+  }
+  
+  /* Status Message */
+  #loginStatus {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ff6b6b;
+  }
+  

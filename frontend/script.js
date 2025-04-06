@@ -406,6 +406,7 @@ function scrollToSection(id) {
 // 🔗 Initialize
 document.addEventListener("DOMContentLoaded", () => {
     console.log("✅ Smart Farming script initialized.");
+<<<<<<< HEAD
 
     // 🔐 Fetch login status
     fetch("is_logged_in.php")
@@ -440,4 +441,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(err => {
             console.error("Failed to fetch username:", err);
         });
+=======
+>>>>>>> a4c652a1321bf8df4c2c7e2632d90b56b21055c9
 });

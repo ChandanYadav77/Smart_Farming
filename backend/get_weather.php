@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 session_start();
@@ -9,6 +10,9 @@ if (!isset($_SESSION['user_id'])) {
 ?>
 
 <?php
+=======
+ <?php
+>>>>>>> a4c652a1321bf8df4c2c7e2632d90b56b21055c9
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
